@@ -1,4 +1,4 @@
-<ons-page  id="Regis">
+<ons-page id="logind">
   <style>
     .size {
 
@@ -10,39 +10,51 @@
 
 
 
-  <ons-page  >
 
+  <ons-page>
 
+    <!-- <img src="img/hot.jpg" alt="Onsen UI" style="width:100%;height:100%;" > -->
 
     <div class="dialog">
+
       <div class="dialog-container">
+
         <div style="text-align: center; margin-top: 30px;">
+
           <h1>Login</h1>
         </div>
 
         <div style="text-align: center; margin-top: 30px;">
           <p>
-            <div class="size"> <i class="fab fa-creative-commons-by"></i>
+            <div class="size">
+
               <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
             </div>
           </p>
 
           <p>
-            <div class="size"> <i class="fas fa-lock"></i> 
-              <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
-            </div>
-          </p>
-          <p style="margin-top: 30px;">
-            <ons-button onclick="login()">Sign in</ons-button>
-          </p>
-          _____________________________
-          <p >
-              Don't have an account? <button class="button--quiet" id="Register">Sign Up</button>
-            </p>
-        </div>
 
+            <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+        </div>
+        </p>
+        <p style="margin-top: 30px; text-align: center;">
+          <ons-button onclick="login()">Sign in</ons-button>
+        </p>
+       <h1 style=" text-align: center;">_____________________</h1>
+        <p style=" text-align: center;">
+          
+
+          Don't have an account? <button class="button--quiet" id="Register">Sign Up</button>
+        </p>
       </div>
+      <p style="margin-top: 30px; text-align: center;" >
+          <div id="gool" ><img src="images/ggsignin.png">  </div>
+        </p>
     </div>
+  
+    </div>
+    </div>
+
   </ons-page>
 
 </ons-page>
