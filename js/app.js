@@ -193,7 +193,7 @@ document.addEventListener('init', function (event) {
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         // ...
-      });
+      }); 
     });
   }
 
@@ -314,7 +314,14 @@ console.log(error);
   }
   if (page.id === "Order") {
 
-    $("#backhome").click(function () {
+    $("#Backhome1").click(function () {
+      content.load('home.html')
+    });
+  }
+
+  if (page.id === "logind") {
+
+    $("#Backhomepage").click(function () {
       content.load('home.html')
     });
   }
