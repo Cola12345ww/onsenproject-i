@@ -10,7 +10,8 @@ background-color: rgb(255, 255, 255);
 
     .center {
       padding-left: 10px;
-
+      font-size: 25px;
+      color: rgb(12, 7, 1);
     }
 
     .list-item__thumbnail {
@@ -20,19 +21,27 @@ background-color: rgb(255, 255, 255);
     }
     .imscc{
 
-      background-color: rgb(57, 185, 218);;
+      background-color: rgb(57, 185, 218);
     }
+  .colorleft{
+    padding-left: 10px;
+    color: rgb(250, 247, 247);
+   width: 100px;
+  }
   </style>
 
-  <ons-toolbar class="ons-toolba ">
-    <ons-toolbar class="imscc">
-      <div class="left" >
-        <ons-back-button  style="color: rgb(15, 15, 15);">back</ons-back-button>
-      </div>
-     
-    </ons-toolbar>
+<ons-toolbar class="imscc ">
+    <div class="left">
 
+        <ons-toolbar-button id="back1" >
+            <ons-icon icon="fa-angle-left"size="32px, material:24px" class="colorleft" ></ons-icon>
+            
+           </ons-toolbar-button>
 
+        
+    </div>
+
+<div class="center">restaurant</div>
   </ons-toolbar>
   <div id="rest1">
     <ons-list-item class="ziseimf" id="rest">

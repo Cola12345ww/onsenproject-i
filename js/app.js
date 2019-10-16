@@ -113,6 +113,7 @@ document.addEventListener('init', function (event) {
 
   if (page.id === 'menuPage') {
     console.log("menuPage");
+  
 
     $("#login").click(function () {
       $("#content")[0].load("login.html");  
@@ -135,7 +136,43 @@ document.addEventListener('init', function (event) {
       $("#content")[0].load("home.html");  
       $("#sidemenu")[0].close();   
     });
+
+
+    $("#ordertotal").click(function () {
+      $("#content")[0].load("order.html");  
+      $("#sidemenu")[0].close();   
+    });
   }
+  if (page.id === 'logind') {
+    console.log("loginPage");
+
+    $("#signinbtn").click(function(){
+      
+    $("#login").click(function () {
+      $("#content")[0].load("login.html");  
+      $("#sidemenu")[0].close();   
+    });
+    
+      var username = $("#username").val();
+      var password = $("#password").val();
+     
+      firebase.auth().signInWithEmailAndPassword(username, password).then(function(result){
+
+      content.load('home.html')   
+      })
+     
+  
+      
+      .catch(function(error) {
+
+        console.log(error.message);
+      });
+
+    })
+  }
+
+
+
   if (page.id === "logind") {
 
     $("#gool").click(function () {
@@ -161,118 +198,130 @@ document.addEventListener('init', function (event) {
   }
 
 
+
+ 
+
+ 
+
+
+
+
+
   if (page.id === "logind") {
 
     $("#Register").click(function () {
       content.load('Register.html')
     });
   }
-  if (page.id === "con") {
+  if (page.id === "Register") {
+
+    $("#Backlog").click(function () {
+      content.load('login.html')
+    });
+  }
+  if (page.id === "Register") {
+     
+    
+    $("#sabmit").click(function () {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      firebase.auth().createUserWithEmailAndPassword(email,password).catch(function(error){
+
+      var errorCode  = error.code;
+      var errorMessage  = error.message;
+if(errorCode === 'auth/weak-password'){
+  alert('the password is too weak');
+
+} else{
+  alert(errorMessage)
+}
+console.log(error);
+      })
+    });
+  
+  
 
     $("#sabmit").click(function () {
       content.load('login.html')
     });
   }
   
-  if (page.id === 'homePage') {
-    page.querySelector('#Select').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('Rest.html', {data: {title: 'RESTAURANT' }});
-    }; 
-  } else if (page.id === 'Rest') {
-    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
-  }
-  if (page.id === 'homePage') {
-    page.querySelector('#Select1').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('Rest.html', {data: {title: 'RESTAURANT'}});
-    }; 
-  } else if (page.id === 'Rest') {
-    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
-  }
+  if (page.id === "homePage") {
 
-
-  if (page.id === 'homePage') {
-    page.querySelector('#Select3').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('Rest.html', {data: {title: 'RESTAURANT'}});
-    }; 
-  } else if (page.id === 'Rest') {
-    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+    $("#Select").click(function () {
+      content.load('Rest.html')
+    });
   }
+  if (page.id === "homePage") {
 
-  if (page.id === 'homePage') {
-    page.querySelector('#Select4').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('Rest.html', {data: {title: 'RESTAURANT'}});
-    }; 
-  } else if (page.id === 'Rest') {
-    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+    $("#Select1").click(function () {
+      content.load('Rest.html')
+    });
   }
-  if (page.id === 'homePage') {
-    page.querySelector('#Select5').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('Rest.html', {data: {title: 'RESTAURANT'}});
-    }; 
-  } else if (page.id === 'Rest') {
-    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+  if (page.id === "homePage") {
+
+    $("#Select3").click(function () {
+      content.load('Rest.html')
+    });
+  }
+  if (page.id === "homePage") {
+
+    $("#Select4").click(function () {
+      content.load('Rest.html')
+    });
+  }
+  if (page.id === "homePage") {
+
+    $("#Select5").click(function () {
+      content.load('Rest.html')
+    });
+  }
+  if (page.id === "homePage") {
+
+    $("#Select6").click(function () {
+      content.load('Rest.html')
+    });
   }
 
 
-  if (page.id === 'homePage') {
-    page.querySelector('#Select5').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('Rest.html', {data: {title: 'RESTAURANT'}});
-    }; 
-  } else if (page.id === 'Rest') {
-    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
-  }
-  if (page.id === 'homePage') {
-    page.querySelector('#Select6').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('Rest.html', {data: {title: 'RESTAURANT'}});
-    }; 
-  } else if (page.id === 'Rest') {
-    page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+  if (page.id === "Rest") {
+
+    $("#rest1").click(function () {
+      content.load('menurest.html')
+    });
   }
 
-
-  if (page.id === 'Rest') {
-    page.querySelector('#rest1').onclick = function() {
-      document.querySelector('#myNavigator').pushPage('menurest.html');
-    }; 
-  }  else if (page.id === 'Rest') {
-    page.querySelector('ons-toolbar .center');
-  }
-
- 
 
   
+  if (page.id === "Rest") {
+
+    $("#back1").click(function () {
+      content.load('home.html')
+    });
+  }
   if (page.id === "menurest") {
 
     $("#back2").click(function () {
       content.load('Rest.html')
     });
   }
-
+  
   if (page.id === "menurest") {
 
     $("#confirm").click(function () {
-      content.load('Order.html')
+      content.load('order.html')
     });
   }
   if (page.id === "Order") {
 
-    $("#back3").click(function () {
-      content.load('Rest.html')
+    $("#backhome").click(function () {
+      content.load('home.html')
     });
   }
 });
 
 
-var login = function () {
-  var username = document.getElementById('username').value;
-  var password = document.getElementById('password').value;
-
-  if (username === '111' && password === '222') {
-    content.load('tabbar.html')
-  } else {
-    ons.notification.alert('Incorrect username or password.');
-  }
 
 
 
-};
+

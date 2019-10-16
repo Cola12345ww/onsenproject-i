@@ -5,6 +5,11 @@
       font-size: 25px;
       color: rgb(18, 204, 255);
     }
+
+    .imgsize{
+
+      width: 85%;
+    }
   </style>
 
 
@@ -13,7 +18,7 @@
 
   <ons-page>
 
-    <!-- <img src="img/hot.jpg" alt="Onsen UI" style="width:100%;height:100%;" > -->
+    <img src="images/cafe-3537801_1920.jpg" alt="Onsen UI" style="width:100%;height:100%;">
 
     <div class="dialog">
 
@@ -24,36 +29,35 @@
           <h1>Login</h1>
         </div>
 
-        <div style="text-align: center; margin-top: 30px;">
+        <div style="text-align:center; margin-top: 30px;">
           <p>
-            <div class="size">
+            <div class="size" >
+
 
               <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
-            </div>
-          </p>
-
-          <p>
+          
+        <br> <br> 
 
             <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
         </div>
         </p>
         <p style="margin-top: 30px; text-align: center;">
-          <ons-button onclick="login()">Sign in</ons-button>
+          <ons-button id="signinbtn">Sign in</ons-button>
         </p>
-       <h1 style=" text-align: center;">_____________________</h1>
+        <h1 style=" text-align: center;">________________</h1>
+        <p style="margin-top: 30px; text-align: center;">
+          <div id="gool"><img src="images/ggsignin.png" class="imgsize"> </div>
+        </p>
         <p style=" text-align: center;">
-          
+
 
           Don't have an account? <button class="button--quiet" id="Register">Sign Up</button>
         </p>
       </div>
-      <p style="margin-top: 30px; text-align: center;" >
-          <div id="gool" ><img src="images/ggsignin.png">  </div>
-        </p>
+
     </div>
-  
-    </div>
-    </div>
+
+
 
   </ons-page>
 
