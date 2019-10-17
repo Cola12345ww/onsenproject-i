@@ -73,7 +73,7 @@ document.addEventListener('init', function (event) {
   if (page.id === 'Rest') {
     console.log("Rest");
 
-   
+
 
     $("#rest1").empty();
     db.collection("home").get().then((querySnapshot) => {
@@ -105,68 +105,97 @@ document.addEventListener('init', function (event) {
 
   }
 
- 
- 
 
+
+  if (page.id === 'menurest') {
+    console.log("menurest");
+
+
+
+    $("#imgstb").empty();
+    db.collection("imgmenu").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+
+        var item2 = `
+      
+        <div>
+        <center>
+        <h1>${doc.data().name}</h1>
+        <div class= "idsd">
+        <img class="item" style="background-image: url('${doc.data().url}')">
+        </div>
+        </center>                
+       </div>
+       `
+
+        $("#imgstb").append(item2);
+
+
+      });
+    });
+
+  }
 
 
 
   if (page.id === 'menuPage') {
     console.log("menuPage");
-  
+
 
     $("#login").click(function () {
-      $("#content")[0].load("login.html");  
-      $("#sidemenu")[0].close();   
+      $("#content")[0].load("login.html");
+      $("#sidemenu")[0].close();
     });
 
     $("#logout").click(function () {
       //firebase sign out
-      firebase.auth().signOut().then(function() {
+      firebase.auth().signOut().then(function () {
         // Sign-out successful.
-        $("#content")[0].load("login.html");  
-        $("#sidemenu")[0].close();   
-      }).catch(function(error) {
+        $("#content")[0].load("login.html");
+        $("#sidemenu")[0].close();
+      }).catch(function (error) {
         // An error happened.
         console.log(error.message);
       });
     });
 
     $("#home").click(function () {
-      $("#content")[0].load("home.html");  
-      $("#sidemenu")[0].close();   
+      $("#content")[0].load("home.html");
+      $("#sidemenu")[0].close();
     });
 
 
     $("#ordertotal").click(function () {
-      $("#content")[0].load("order.html");  
-      $("#sidemenu")[0].close();   
+      $("#content")[0].load("order.html");
+      $("#sidemenu")[0].close();
     });
   }
   if (page.id === 'logind') {
     console.log("loginPage");
 
-    $("#signinbtn").click(function(){
-      
-    $("#login").click(function () {
-      $("#content")[0].load("login.html");  
-      $("#sidemenu")[0].close();   
-    });
-    
+    $("#signinbtn").click(function () {
+
+      $("#login").click(function () {
+        $("#content")[0].load("login.html");
+        $("#sidemenu")[0].close();
+      });
+
       var username = $("#username").val();
       var password = $("#password").val();
-     
-      firebase.auth().signInWithEmailAndPassword(username, password).then(function(result){
 
-      content.load('home.html')   
+      firebase.auth().signInWithEmailAndPassword(username, password).then(function (result) {
+
+
+        content.load('home.html')
       })
-     
-  
-      
-      .catch(function(error) {
 
-        console.log(error.message);
-      });
+
+
+        .catch(function (error) {
+          alert('username and password incorrect ');
+
+          console.log(error.message);
+        });
 
     })
   }
@@ -177,14 +206,14 @@ document.addEventListener('init', function (event) {
 
     $("#gool").click(function () {
       var provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).then(function(result) {
+      firebase.auth().signInWithPopup(provider).then(function (result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
         // ...
         content.load('home.html')
-      }).catch(function(error) {
+      }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -193,15 +222,15 @@ document.addEventListener('init', function (event) {
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         // ...
-      }); 
+      });
     });
   }
 
 
 
- 
 
- 
+
+
 
 
 
@@ -209,7 +238,7 @@ document.addEventListener('init', function (event) {
 
   if (page.id === "logind") {
 
-    $("#Register").click(function () {
+    $("#gister").click(function () {
       content.load('Register.html')
     });
   }
@@ -220,32 +249,32 @@ document.addEventListener('init', function (event) {
     });
   }
   if (page.id === "Register") {
-     
-    
+
+
     $("#sabmit").click(function () {
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
-      firebase.auth().createUserWithEmailAndPassword(email,password).catch(function(error){
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
 
-      var errorCode  = error.code;
-      var errorMessage  = error.message;
-if(errorCode === 'auth/weak-password'){
-  alert('the password is too weak');
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/weak-password') {
+          alert('the password is too weak');
 
-} else{
-  alert(errorMessage)
-}
-console.log(error);
+        } else {
+          alert(errorMessage)
+        }
+        console.log(error);
       })
     });
-  
-  
+
+
 
     $("#sabmit").click(function () {
       content.load('login.html')
     });
   }
-  
+
   if (page.id === "homePage") {
 
     $("#Select").click(function () {
@@ -292,7 +321,7 @@ console.log(error);
   }
 
 
-  
+
   if (page.id === "Rest") {
 
     $("#back1").click(function () {
@@ -305,7 +334,7 @@ console.log(error);
       content.load('Rest.html')
     });
   }
-  
+
   if (page.id === "menurest") {
 
     $("#confirm").click(function () {
