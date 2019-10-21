@@ -71,7 +71,7 @@ document.addEventListener('init', function (event) {
   }
 
   if (page.id === 'Rest') {
-    console.log("Rest");
+
 
 
 
@@ -104,20 +104,166 @@ document.addEventListener('init', function (event) {
     });
 
   }
+  if (page.id === 'Rest') {
+
+
+
+
+    $("#rest2").empty();
+    db.collection("home2").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+
+        var item2 = `
+        <ons-list-item class="ziseimf" >
+        <div class="left">
+          <img class="list-item__thumbnail" style="background-image: url('${doc.data().url}')">
+        </div>
+        <div class="center">
+          <span class="list-item__title" id="itname">
+            <h2>${doc.data().name}</h2>
+          </span><span class="list-item__subtitle">
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star-half" fixed-width="false"></ons-icon>
+  
+          </span>
+        </div>
+      </ons-list-item>`
+
+        $("#rest2").append(item2);
+
+
+      });
+    });
+
+  }
+  if (page.id === 'Rest') {
+
+
+
+
+    $("#rest3").empty();
+    db.collection("home3").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+
+        var item3 = `
+        <ons-list-item class="ziseimf" >
+        <div class="left">
+          <img class="list-item__thumbnail" style="background-image: url('${doc.data().url}')">
+        </div>
+        <div class="center">
+          <span class="list-item__title" id="itname">
+            <h2>${doc.data().name}</h2>
+          </span><span class="list-item__subtitle">
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star-half" fixed-width="false"></ons-icon>
+  
+          </span>
+        </div>
+      </ons-list-item>`
+
+        $("#rest3").append(item3);
+
+
+      });
+    });
+
+  }
+  if (page.id === 'Rest') {
+
+
+
+
+    $("#rest4").empty();
+    db.collection("home4").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+
+        var item4 = `
+        <ons-list-item class="ziseimf" >
+        <div class="left">
+          <img class="list-item__thumbnail" style="background-image: url('${doc.data().url}')">
+        </div>
+        <div class="center">
+          <span class="list-item__title" id="itname">
+            <h2>${doc.data().name}</h2>
+          </span><span class="list-item__subtitle">
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star-half" fixed-width="false"></ons-icon>
+  
+          </span>
+        </div>
+      </ons-list-item>`
+
+        $("#rest4").append(item4);
+
+
+      });
+    });
+
+  }
+  if (page.id === 'Rest') {
+
+
+
+
+    $("#rest5").empty();
+    db.collection("home5").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+
+        var item5 = `
+        <ons-list-item class="ziseimf" >
+        <div class="left">
+          <img class="list-item__thumbnail" style="background-image: url('${doc.data().url}')">
+        </div>
+        <div class="center">
+          <span class="list-item__title" id="itname">
+            <h2>${doc.data().name}</h2>
+          </span><span class="list-item__subtitle">
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star-half" fixed-width="false"></ons-icon>
+  
+          </span>
+        </div>
+      </ons-list-item>`
+
+        $("#rest5").append(item5);
+
+
+      });
+    });
+
+  }
+
+
+  if (page.id === "homePage") {
+
+    $("#Select1").click(function () {
+      content.load('Rest.html')
+    });
+  }
+
 
 
 
   if (page.id === 'menurest') {
-    console.log("menurest");
+    var category = localStorage.getItem("id");
+    console.log("categoryPage:" + category);
+    
 
 
-
-    $("#imgstb").empty();
-    db.collection("imgmenu").get().then((querySnapshot) => {
+    $("#list").empty();
+    db.collection("imgmenu").where("typ", "==", category).get()
+    .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
 
-        var item2 = `
-      
+        var item1= `
         <div>
         <center>
         <h1>${doc.data().name}</h1>
@@ -126,15 +272,58 @@ document.addEventListener('init', function (event) {
         </div>
         </center>                
        </div>
-       `
 
-        $("#imgstb").append(item2);
+
+       
+       <ons-list modifier="inset">
+       <ons-list-header>Menu</ons-list-header>
+
+
+       <ons-list-item modifier="longdivider">
+               <label class="checkbox checkbox--material">
+                       <input type="checkbox" class="checkbox__input checkbox--material__input"
+                               checked="checked">
+                       <div class="checkbox__checkmark checkbox--material__checkmark"></div>
+
+               </label> &nbsp; &nbsp;
+               ${doc.data().menu1}
+           </ons-list-item>
+           <ons-list-item modifier="longdivider">
+           <label class="checkbox checkbox--material">
+                   <input type="checkbox" class="checkbox__input checkbox--material__input"
+                           checked="checked">
+                   <div class="checkbox__checkmark checkbox--material__checkmark"></div>
+
+           </label> &nbsp; &nbsp;
+           ${doc.data().menu2}
+ </ons-list-item>
+         
+      </ons-list> `
+
+        $("#list").append(item1);
+        console.log(doc.data().name);
 
 
       });
     });
 
   }
+
+  if (page.id === "Rest") {
+
+    $("#rest1").click(function () {
+      localStorage.setItem("id", "all");
+      $("#content")[0].load("menurest.html");
+    });
+  }
+  if (page.id === "Rest") {
+
+    $("#rest2").click(function () {
+      localStorage.setItem("id", "tes");
+      $("#content")[0].load("menurest.html");
+    });
+  }
+
 
 
 
@@ -275,50 +464,32 @@ document.addEventListener('init', function (event) {
     });
   }
 
-  if (page.id === "homePage") {
-
-    $("#Select").click(function () {
-      content.load('Rest.html')
-    });
-  }
-  if (page.id === "homePage") {
-
-    $("#Select1").click(function () {
-      content.load('Rest.html')
-    });
-  }
-  if (page.id === "homePage") {
-
-    $("#Select3").click(function () {
-      content.load('Rest.html')
-    });
-  }
-  if (page.id === "homePage") {
-
-    $("#Select4").click(function () {
-      content.load('Rest.html')
-    });
-  }
-  if (page.id === "homePage") {
-
-    $("#Select5").click(function () {
-      content.load('Rest.html')
-    });
-  }
-  if (page.id === "homePage") {
-
-    $("#Select6").click(function () {
-      content.load('Rest.html')
-    });
-  }
 
 
-  if (page.id === "Rest") {
+  // if (page.id === "homePage") {
 
-    $("#rest1").click(function () {
-      content.load('menurest.html')
-    });
-  }
+  //   $("#Select3").click(function () {
+  //     content.load('Rest.html')
+  //   });
+  // }
+  // if (page.id === "homePage") {
+
+  //   $("#Select4").click(function () {
+  //     content.load('Rest.html')
+  //   });
+  // }
+  // if (page.id === "homePage") {
+
+  //   $("#Select5").click(function () {
+  //     content.load('Rest.html')
+  //   });
+  // }
+
+
+
+
+
+
 
 
 
