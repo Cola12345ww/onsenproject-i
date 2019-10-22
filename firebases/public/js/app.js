@@ -255,15 +255,15 @@ document.addEventListener('init', function (event) {
   if (page.id === 'menurest') {
     var category = localStorage.getItem("id");
     console.log("categoryPage:" + category);
-    
+
 
 
     $("#list").empty();
     db.collection("imgmenu").where("typ", "==", category).get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
 
-        var item1= `
+          var item1 = `
         <div>
         <center>
         <h1>${doc.data().name}</h1>
@@ -277,42 +277,53 @@ document.addEventListener('init', function (event) {
        
        <ons-list modifier="inset">
        <ons-list-header>Menu</ons-list-header>
-
-
-       <ons-list-item modifier="longdivider">
-               <label class="checkbox checkbox--material">
-                       <input type="checkbox" class="checkbox__input checkbox--material__input"
-                               checked="checked">
-                       <div class="checkbox__checkmark checkbox--material__checkmark"></div>
-
-               </label> &nbsp; &nbsp;
-               ${doc.data().menu1}
-           </ons-list-item>
-           <ons-list-item modifier="longdivider">
-           <label class="checkbox checkbox--material">
-                   <input type="checkbox" class="checkbox__input checkbox--material__input"
-                           checked="checked">
-                   <div class="checkbox__checkmark checkbox--material__checkmark"></div>
-
-           </label> &nbsp; &nbsp;
-           ${doc.data().menu2}
- </ons-list-item>
+       <div class="toolbar toolbar--material">
+      
+       <div class="toolbar__center ">
+       ${doc.data().menu1}
+       </div>
+       <div class="toolbar__right toolbar--material__right">
+         <span class="toolbar-button toolbar-button--material">
+          
+         </span>
+         <span class="toolbar-button ">
+        ฿50.<ons-icon  icon="fa-plus" ></ons-icon>
+         </span>
+       
+       </div>
+     </div>
+     <div class="toolbar toolbar--material">
+      
+     <div class="toolbar__center ">
+     ${doc.data().menu2}
+     </div>
+     <div class="toolbar__right toolbar--material__right">
+       <span class="toolbar-button toolbar-button--material">
+        
+       </span>
+       <span class="toolbar-button ">
+      ฿50.<ons-icon  icon="fa-plus" ></ons-icon>
+       </span>
+     
+     </div>
+   </div>
+     
          
       </ons-list> `
 
-        $("#list").append(item1);
-        console.log(doc.data().name);
+          $("#list").append(item1);
+          console.log(doc.data().name);
 
 
+        });
       });
-    });
 
   }
 
   if (page.id === "Rest") {
 
     $("#rest1").click(function () {
-      localStorage.setItem("id", "all");
+      localStorage.setItem("id", "sum");
       $("#content")[0].load("menurest.html");
     });
   }
@@ -324,6 +335,30 @@ document.addEventListener('init', function (event) {
     });
   }
 
+
+  if (page.id === "Rest") {
+
+    $("#rest3").click(function () {
+      localStorage.setItem("id", "cre");
+      $("#content")[0].load("menurest.html");
+    });
+  }
+
+  if (page.id === "Rest") {
+
+    $("#rest4").click(function () {
+      localStorage.setItem("id", "der");
+      $("#content")[0].load("menurest.html");
+    });
+  }
+
+  if (page.id === "Rest") {
+
+    $("#rest5").click(function () {
+      localStorage.setItem("id", "all");
+      $("#content")[0].load("menurest.html");
+    });
+  }
 
 
 
@@ -464,26 +499,32 @@ document.addEventListener('init', function (event) {
     });
   }
 
+  
+  if (page.id === "homePage") {
 
+    $("#Select").click(function () {
+      content.load('Rest.html')
+    });
+  }
 
-  // if (page.id === "homePage") {
+  if (page.id === "homePage") {
 
-  //   $("#Select3").click(function () {
-  //     content.load('Rest.html')
-  //   });
-  // }
-  // if (page.id === "homePage") {
+    $("#Select3").click(function () {
+      content.load('Rest.html')
+    });
+  }
+  if (page.id === "homePage") {
 
-  //   $("#Select4").click(function () {
-  //     content.load('Rest.html')
-  //   });
-  // }
-  // if (page.id === "homePage") {
+    $("#Select4").click(function () {
+      content.load('Rest.html')
+    });
+  }
+  if (page.id === "homePage") {
 
-  //   $("#Select5").click(function () {
-  //     content.load('Rest.html')
-  //   });
-  // }
+    $("#Select5").click(function () {
+      content.load('Rest.html')
+    });
+  }
 
 
 
